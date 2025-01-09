@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 20:25:54 by lginer-m          #+#    #+#             */
-/*   Updated: 2024/06/18 19:08:12 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:26:16 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	compare_type(const char *format, va_list args, int *store, int i)
 			i++;
 			if (format[i] == 'c')
 				*store += ft_print_char(va_arg(args, int));
-				continue;
 			if (format[i] == 's')
 				*store += ft_print_string(va_arg(args, char *));
 			if (format[i] == 'p')

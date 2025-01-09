@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+         #
+#    By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/01 22:41:14 by lauragm           #+#    #+#              #
-#    Updated: 2025/01/01 22:52:38 by lauragm          ###   ########.fr        #
+#    Updated: 2025/01/09 18:24:56 by lginer-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 HEADERS = -I$(LIBFT) -I$(PRINTF_DIR)
 
-SRCS = \
+SRCS = src/main.c src/check.c\
 
 OBJS = ${SRCS:.c=.o}
 
@@ -35,7 +35,7 @@ libft:
 	make -C $(LIBFT_DIR)
 
 printf:
-    make -C $(PRINTF_DIR)
+	@make -C $(PRINTF_DIR)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(HEADERS) -o $@ -c $< 
@@ -46,12 +46,12 @@ $(NAME): $(OBJS)
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBFT_DIR)/*.o
-	make -C $(PRINTF_DIR) clean
+	@make -C $(PRINTF_DIR) clean
 
 fclean: clean
-    make -C $(LIBFT_DIR) fclean
-    make -C $(PRINTF_DIR) fclean
-    rm -f $(NAME)
+	@make -C $(LIBFT_DIR) fclean
+	@make -C $(PRINTF_DIR) fclean
+	@rm -f $(NAME)
 
 re: fclean all
 
