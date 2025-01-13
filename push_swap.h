@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/09 18:27:36 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/13 21:06:30 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ typedef struct s_program
 	struct s_stack	*next;        // Puntero al siguiente elemento en la lista
 }	t_program;
 
-int check_int(int argc, char **argv);
-int check_duplicate(int argc, char **argv);
-int check_order(int argc, char **argv);
+int check_int(char *str);
+int check_order(t_program *program);
+
+//int check_duplicate(int argc, char **argv);
 
 #endif
