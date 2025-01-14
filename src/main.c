@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/13 21:12:13 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/14 20:20:01 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	if(argc == 2)
 	{
 		ft_memset(&program, 0, sizeof(t_program));
-		if(check_int(argv[1]) < 0)
+		if(check_digit(argv[1]) < 0)
 		{
 			ft_printf("Error\n");
 			return(1);
@@ -29,8 +29,16 @@ int main(int argc, char **argv)
 			ft_printf("Not order\n");
 			return(1);
 		}
-		
-	
+		if(check_int(&program) < 0)
+		{
+			ft_printf("Not int\n");
+			return(1);
+		}
+		if(check_duplicate(&program) < 0)
+		{
+			ft_printf("Not duplicate\n");
+			return(1);
+		}
 	}
 	else
 	{

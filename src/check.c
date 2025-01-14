@@ -6,13 +6,13 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:38 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/13 21:11:48 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/14 20:39:41 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int check_int(char *str)//comprueba si todos son digitos
+int	check_digit(char *str)//comprueba si todos son digitos
 {
 	int i;
 	int start;
@@ -36,22 +36,53 @@ int check_int(char *str)//comprueba si todos son digitos
 		while(str[i] == ' ')
 			i++;
 	}
-	return (0);
+	return(0);
 }
 
-int check_order(t_program *program) //comprueba si esta ordenado HAY QUE CREAR UNA FUNCION PARA CONVERTIR Y USAR LA LISTA
+int	check_order(t_program *head) //comprueba si esta ordenado
 {
-	while(program->next != NULL)
+	t_program	*program;
+	
+	program = head;
+	while(program != NULL)
 	{
-		if(program->value > program->next->value)
-			return(0);
+		if(program->value > head->value)
+			return(-1);
+		program = program->next; //avanza al siguiente nodo
+	}
+	return(0);
+}
+
+int	check_duplicate(t_program *head)//comprueba si existen numeros duplicados
+{
+	t_program	*current;
+	t_program	*next; //otro nodo
+	
+	current = head;
+	next = current->next;
+	while(current->next != NULL)//empieza recorriendo los dos primeros nodos
+	{
+		while(next != NULL)//recorre el resto de la lista
+		{
+			if(current->value == next->value)
+				return(-1);
+			next = next->next; //avanza al siguiente nodo
+		}
+		current = current->next;
+	}
+	return(0);
+}
+
+int	check_int(t_program *head) //comprueba si son int, no solamente digitos
+{
+	t_program *program;
+	
+	program = head;
+	while(program != NULL)
+	{
+		if(program->value < INT_MIN || program->value > INT_MAX)
+			return(-1);
 		program = program->next;
 	}
-	return(1);
+	return(0);
 }
-
-//int check_duplicate(char *str)//comprueba si existen numeros duplicados
-
-
-
-//comprueba si son int, no solamente digitos
