@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:38 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/14 20:39:41 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:37:39 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_order(t_program *head) //comprueba si esta ordenado
 	program = head;
 	while(program != NULL)
 	{
-		if(program->value > head->value)
+		if(program->value > program->next->value)
 			return(-1);
 		program = program->next; //avanza al siguiente nodo
 	}

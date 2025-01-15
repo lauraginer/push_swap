@@ -6,13 +6,13 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 20:37:45 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/14 21:13:54 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:25:41 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void do_swap(t_program *head)
+void	do_swap(t_program *head)
 {
 	int	tmp_value;
 	int tmp_index;
@@ -33,7 +33,15 @@ void	swap_sa(t_program *stack_a)
 	ft_printf("sa\n");
 }
 
-void	swap_sb(t_program *head)
+void	swap_sb(t_program *stack_b)
+{
+	do_swap(stack_b);
+	ft_printf("sb\n");
+}
 
-void	swap_ss(t_program *head)
-
+void	swap_ss(t_program *stack_a, t_program *stack_b)
+{
+	do_swap(stack_a);
+	do_swap(stack_b);
+	ft_printf("ss\n");
+}
