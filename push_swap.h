@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/14 21:14:42 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/16 21:20:49 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ typedef struct s_program
 	struct s_program	*next;        // Puntero al siguiente elemento en la lista
 }	t_program;
 
-int check_digit(char *str);
-int check_order(t_program *head);
-int check_duplicate(t_program *head);
-int check_int(t_program *head);
+int	check_digit(char *str);
+int	check_order(t_program *head);
+int	check_duplicate(t_program *head);
+int	check_int(t_program *head);
+t_program	*string_to_list(char *str);
+void	free_tokens(char **tokens);
+void	free_list(t_program *head);
 
 #endif

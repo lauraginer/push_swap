@@ -6,7 +6,7 @@
 #    By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/01 22:41:14 by lauragm           #+#    #+#              #
-#    Updated: 2025/01/09 18:24:56 by lginer-m         ###   ########.fr        #
+#    Updated: 2025/01/16 21:22:42 by lginer-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 CC = clang
 CFLAGS = -g -Wall -Werror -Wextra \
-		#-fsanitize=address,undefined \
+		-fsanitize=address,undefined \
 		#-Wunreachable-code -Ofast \
 
 LIBFT_DIR = Libft
@@ -25,7 +25,7 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 HEADERS = -I$(LIBFT) -I$(PRINTF_DIR)
 
-SRCS = src/main.c src/check.c\
+SRCS = src/main.c src/check.c src/utils.c\
 
 OBJS = ${SRCS:.c=.o}
 
