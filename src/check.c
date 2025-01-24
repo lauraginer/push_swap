@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:38 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/16 19:45:44 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/24 22:45:18 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 int	check_digit(char *str)//comprueba si todos son digitos
 {
 	int i;
-	int start;
 
-	i = 0;
-	start = 0;	
+	i = 0;	
 	if(!str[i])
 		return(-1);
 	while(str[i])
@@ -41,16 +39,18 @@ int	check_digit(char *str)//comprueba si todos son digitos
 
 int	check_order(t_program *head) //comprueba si esta ordenado
 {
-	t_program	*program;
+	t_program *current;
 	
-	program = head;
-	while(program != NULL)
-	{
-		if(program->value > program->next->value)
-			return(-1);
-		program = program->next; //avanza al siguiente nodo
+	if (!head)
+        return (-1); // lista vacía
+	current = head;
+	while (current->next != NULL) // compara cada nodo con el siguiente
+ 	{
+		if (current->value > current->next->value)
+			return (-1); // no está ordenada
+		current = current->next;
 	}
-	return(0);
+	return (0);
 }
 
 int	check_duplicate(t_program *head)//comprueba si existen numeros duplicados
@@ -59,9 +59,9 @@ int	check_duplicate(t_program *head)//comprueba si existen numeros duplicados
 	t_program	*next; //otro nodo
 	
 	current = head;
-	next = current->next;
-	while(current->next != NULL)//empieza recorriendo los dos primeros nodos
+	while(current != NULL)//empieza recorriendo los dos primeros nodos
 	{
+		next = current->next;
 		while(next != NULL)//recorre el resto de la lista
 		{
 			if(current->value == next->value)

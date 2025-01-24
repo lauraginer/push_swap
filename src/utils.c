@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:09:48 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/16 21:18:09 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/24 22:21:38 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ t_program *string_to_list(char *str)
 	
 	i = 0;
 	tokens = ft_split(str, ' '); //divide las cadenas en subcadenas
-	while(tokens[i])
+	if(!tokens)
+		return NULL;
+	while(tokens[i])//itera sobre las subcadenas
 	{
     	new_element = (t_program *)malloc(sizeof(t_program));
 		if(!new_element)
@@ -31,13 +33,17 @@ t_program *string_to_list(char *str)
 			free_tokens(tokens);
 			return NULL;
 		}
-		new_element->value = ft_atoi(tokens[i]);
+		new_element->value = ft_atoi(tokens[i]); //convierte la sub a entero
 		new_element->next = NULL; //inicializas nuevo nodo
 		if (!head)
     		head = new_element;
 		else
-    		current->next = new_element; //actualizas con el nuevo nodo	
-		current = new_element;
+		{
+			current = head;
+			while(current->next)
+				current = current->next;
+			current->next = new_element; //actualizas con el nuevo nodo	
+		}
 		i++;
 	}
 	free_tokens(tokens);
@@ -49,7 +55,10 @@ void	free_tokens(char **tokens)
 	
 	i = 0;
 	while(tokens[i])
-    	free(tokens[i++]);
+	{
+		free(tokens[i]);
+		i++;
+	}
 	free(tokens);
 }
 

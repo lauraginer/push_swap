@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/16 19:48:24 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/01/24 22:40:22 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int main(int argc, char **argv)
 {
 	t_program	*program;
-	t_program	*temp;
 	
 	if(argc == 2)
 	{
@@ -34,24 +33,22 @@ int main(int argc, char **argv)
 		if(check_int(program) < 0)
 		{
 			ft_printf("Not int\n");
+			free_list(program);
+			return(0);
+		}
+		if(check_duplicate(program) < 0)
+		{
+			ft_printf("Is duplicate!!\n");
+			free_list(program);
 			return(0);
 		}
 		if(check_order(program) < 0)
 		{
 			ft_printf("Not order\n");
+			free_list(program);
 			return(0);
 		}
-		if(check_duplicate(program) < 0)
-		{
-			ft_printf("Not duplicate\n");
-			return(0);
-		}
-		while(program) //libera memoria de la lista
-		{
-			temp = program;
-			program = program->next;
-			free(temp);
-		}
+		free_list(program);
 	}
 	else
 	{
