@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:38 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/24 22:45:18 by lauragm          ###   ########.fr       */
+/*   Updated: 2025/03/27 17:35:18 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	check_digit(char *str)//comprueba si todos son digitos
 	i = 0;	
 	if(!str[i])
 		return(-1);
+	while(str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
 	while(str[i])
 	{
-		while(str[i] == ' ')//saltas espacios iniciales
-			i++;
 		if(str[i] == '-')
 			i++;
 		if(!ft_isdigit(str[i]))//comprobamos que haya al menos un digito
@@ -41,16 +41,16 @@ int	check_order(t_program *head) //comprueba si esta ordenado
 {
 	t_program *current;
 	
-	if (!head)
+	if(!head)
         return (-1); // lista vacía
 	current = head;
-	while (current->next != NULL) // compara cada nodo con el siguiente
+	while(current->next != NULL) // compara cada nodo con el siguiente
  	{
-		if (current->value > current->next->value)
+		if(current->value > current->next->value)
 			return (-1); // no está ordenada
 		current = current->next;
 	}
-	return (0);
+	return(0);
 }
 
 int	check_duplicate(t_program *head)//comprueba si existen numeros duplicados

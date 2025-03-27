@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 20:37:45 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/15 19:25:41 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/03/27 19:56:53 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	do_swap(t_program *head)
 	int	tmp_value;
 	int tmp_index;
 
-	if(head == NULL || head->next == NULL)
+	if(head == NULL || head->next == NULL) //si la lista esta vacia o solo existe un elemento en ella
 		return ;
 	tmp_value = head->value; //guardamos el numero en tmp
 	head->value = head->next->value; //el siguiente nodo se guarda en la posicion del primer nodo

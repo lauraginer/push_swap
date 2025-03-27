@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:09:48 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/24 22:21:38 by lauragm          ###   ########.fr       */
+/*   Updated: 2025/03/27 20:13:12 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_program *string_to_list(char *str)
 		}
 		new_element->value = ft_atoi(tokens[i]); //convierte la sub a entero
 		new_element->next = NULL; //inicializas nuevo nodo
-		if (!head)
+		if(!head)
     		head = new_element;
 		else
 		{
@@ -47,7 +47,7 @@ t_program *string_to_list(char *str)
 		i++;
 	}
 	free_tokens(tokens);
-	return head;
+	return(head);
 }
 void	free_tokens(char **tokens)
 {
@@ -66,7 +66,7 @@ void	free_list(t_program *head)
 {
 	t_program *temp;
     
-    while (head)
+    while(head)
     {
     	temp = head;
         head = head->next;
