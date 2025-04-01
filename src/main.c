@@ -6,13 +6,13 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/03/27 20:07:06 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/03/31 22:43:55 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int check_all()
+static int check_all();
 int main(int argc, char **argv)
 {
 	t_program	*program;
