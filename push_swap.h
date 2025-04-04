@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/01/16 21:20:49 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/04 18:09:02 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,20 @@ int	check_int(t_program *head);
 t_program	*string_to_list(char *str);
 void	free_tokens(char **tokens);
 void	free_list(t_program *head);
+void	do_push(t_program **src, t_program **dest);
+void	push_pa(t_program *stack_a, t_program *stack_b);
+void	push_pb(t_program *stack_a, t_program *stack_b);
+void	do_swap(t_program *head);
+void	swap_sb(t_program *stack_b);
+void	swap_sa(t_program *stack_a);
+void	swap_ss(t_program *stack_a, t_program *stack_b);
+void	do_rotate(t_program **head);
+void	rotate_ra(t_program *stack_a);
+void	rotate_rb(t_program *stack_b);
+void	rotate_rr(t_program *stack_a, t_program *stack_b);
+void	do_reverse_rotate(t_program **head);
+void	reverse_rotate_rra(t_program *stack_a);
+void	reverse_rotate_rrb(t_program *stack_b);
+void	reverse_rotate_rrr(t_program *stack_a, t_program *stack_b);
 
 #endif

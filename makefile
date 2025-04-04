@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+         #
+#    By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/01 22:41:14 by lauragm           #+#    #+#              #
-#    Updated: 2025/01/24 22:13:13 by lauragm          ###   ########.fr        #
+#    Updated: 2025/04/04 18:12:14 by lginer-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 HEADERS = -I$(LIBFT) -I$(PRINTF_DIR)
 
-SRCS = src/main.c src/check.c src/utils.c\
+SRCS = src/main.c src/check.c src/utils.c src/push.c src/rotate.c src/swap.c src/reverse_rotate.c\
 
 OBJS = ${SRCS:.c=.o}
 
