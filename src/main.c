@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/04 18:04:06 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:13:09 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 //static int check_all();
 int main(int argc, char **argv)
 {
+	t_program *slack_a;
+	t_program *slack_b;
 	t_program	*program;
 	
+	slack_b = NULL;
 	if(argc == 2)
 	{
 		ft_memset(&program, 0, sizeof(t_program));
