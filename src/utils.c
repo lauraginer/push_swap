@@ -6,13 +6,13 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:09:48 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/03/27 20:13:12 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/04 22:39:31 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_program *string_to_list(char *str)
+t_program *string_to_list(char *str) //retorna la **cabeza de una lista enlazada** (`t_program *head`) que se construye a partir del argumento string
 {
 	int i;
 	char **tokens;
