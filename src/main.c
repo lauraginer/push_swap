@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/07 21:56:53 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/07 22:02:56 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int main(int argc, char **argv)
 			}
 			add_node(&slack_a, new_node);//añades el nodo a slack a
 			program = program->next;
+			//print_stack(stack_a);
 		}
 		free_list(program);
 	}
