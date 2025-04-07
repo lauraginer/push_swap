@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:09:48 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/04 22:39:31 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/07 18:36:33 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_program *string_to_list(char *str) //retorna la **cabeza de una lista enlazada
 {
 	int i;
 	char **tokens;
-	t_program	*new_element;
+	t_program	*new_element; //para crear un nuevo nodo
 	t_program *current;
 	t_program *head = NULL;
 	

@@ -23,13 +23,29 @@ t_program	*create_node(int value) //creamos un nuevo nodo
 	node = malloc(sizeof(t_program));
 	if(!node)
 		return(NULL);
-		node->value = value;
-		node->index = -1;
-		node->pos = -1;
-		node->target_pos = -1;
-		node->cost_a = 0;
-		node->cost_b = 0;
-		node->next = NULL;
-		return(node);
+	node->value = value;
+	node->index = -1;
+	node->pos = -1;
+	node->target_pos = -1;
+	node->cost_a = 0;
+	node->cost_b = 0;
+	node->next = NULL;
+	return(node);
 }
+
 void	add_node(t_program **stack, t_program *new) //añades un nodo al final del stack
+{
+	t_program *last;
+
+	if(!stack || !new)
+		return;
+	if(*stack) //si la lista esta vacia, el nuevo nodo será el primero
+	{
+		*stack = new;
+		return;
+	}
+	last = *stack;
+	while(last->next)
+		last = last->next;
+	last->next = new; //añades el nuevo nodo al final
+}
