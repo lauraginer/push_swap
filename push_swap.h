@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/07 21:43:51 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/08 22:43:28 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	reverse_rotate_rrb(t_program *stack_b);
 void	reverse_rotate_rrr(t_program *stack_a, t_program *stack_b);
 t_program	*create_node(int value);
 void	add_node(t_program **stack, t_program *new);
-
+void print_stack(t_program *stack);
+int	ft_list_size(t_program *head);
+void push_swap(t_program *stack_a);
 
 #endif

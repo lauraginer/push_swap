@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 19:18:24 by lginer-m          #+#    #+#             */
-/*   Updated: 2024/02/02 19:18:25 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:01:21 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	i = 0;
+	if(!s)
+		return (NULL);
 	ptr = malloc(ft_strlen(s) + 1);
 	if (!ptr)
 		return (NULL);

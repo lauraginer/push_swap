@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 //funcion para crear un nuevo nodo
 //funcion para añadir un nodo al final del stack
@@ -31,6 +32,7 @@ t_program	*create_node(int value) //creamos un nuevo nodo
 	node->cost_b = 0;
 	node->next = NULL;
 	return(node);
+
 }
 
 void	add_node(t_program **stack, t_program *new) //añades un nodo al final del stack
@@ -39,7 +41,7 @@ void	add_node(t_program **stack, t_program *new) //añades un nodo al final del 
 
 	if(!stack || !new)
 		return;
-	if(*stack) //si la lista esta vacia, el nuevo nodo será el primero
+	if(!*stack) //si la lista esta vacia, el nuevo nodo será el primero
 	{
 		*stack = new;
 		return;
@@ -48,4 +50,16 @@ void	add_node(t_program **stack, t_program *new) //añades un nodo al final del 
 	while(last->next)
 		last = last->next;
 	last->next = new; //añades el nuevo nodo al final
+}
+
+void print_stack(t_program *stack)
+{
+	t_program	*list;
+
+	list = stack;
+	while(list)
+	{
+		printf("%d\n", list->value);
+		list = list->next;
+	}
 }

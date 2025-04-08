@@ -6,22 +6,37 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/07 22:02:56 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/08 22:50:08 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 //static int check_all();
+void push_swap(t_program *stack_a)
+{
+	int size;
+	
+	size = ft_list_size(stack_a);
+	if(!stack_a)
+		return;
+	else if(size == 2)
+		swap_sa(stack_a);
+	/*else if(size == 3)
+		mini_sort(stack_a); //aqui haces y sigues la guia para solo para tres numeros o más
+	else if(size > 3)
+		rest_sort(stack_a);*/
+}
 int main(int argc, char **argv)
 {
-	t_program *slack_a;
-	t_program *slack_b;
-	t_program *new_node;
+	t_program	*stack_a;
+	t_program	*stack_b;
+	t_program	*new_node;
 	t_program	*program;
+	t_program	*temp;
 	
-	slack_a = NULL;
-	slack_b = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	if(argc == 2)
 	{
 		ft_memset(&program, 0, sizeof(t_program)); //esto no se si es necesario
@@ -48,9 +63,9 @@ int main(int argc, char **argv)
 			free_list(program);
 			return(0);
 		}
-		if(check_order(program) < 0)
+		if(check_order(program) == 0)
 		{
-			ft_printf("Not order\n");
+			ft_printf("Is order\n");
 			free_list(program);
 			return(0);
 		}
@@ -60,14 +75,18 @@ int main(int argc, char **argv)
 			if(!new_node)
 			{
 				ft_printf("Error creating node\n");
-				free_list(slack_a);
+				free_list(stack_a);
 				free_list(program);
 				return(0);
 			}
-			add_node(&slack_a, new_node);//añades el nodo a slack a
+			add_node(&stack_a, new_node);//añades el nodo a slack a
+			temp = program; //para liberar el nodo actual de program //enterate bien de esto
 			program = program->next;
-			//print_stack(stack_a);
+			free(temp);
 		}
+		push_swap(stack_a);   
+		//print_stack(stack_a);
+		free_list(stack_a);
 		free_list(program);
 	}
 	else
