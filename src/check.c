@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:38 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/08 22:51:09 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/09 19:13:15 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	check_order(t_program *head) //comprueba si esta ordenado
 	while(current->next) // compara cada nodo con el siguiente
  	{
 		if(current->value > current->next->value)
-			return (0); //está ordenada
+			return (-1); //está desordenada
 		current = current->next;
 	}
-	return(-1);
+	return(0);
 }
 
 int	check_duplicate(t_program *head)//comprueba si existen numeros duplicados
@@ -86,3 +86,4 @@ int	check_int(t_program *head) //comprueba si son int, no solamente digitos
 	}
 	return(0);
 }
+

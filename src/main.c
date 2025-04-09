@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/08 22:50:08 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:41:01 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ void push_swap(t_program *stack_a)
 		return;
 	else if(size == 2)
 		swap_sa(stack_a);
-	/*else if(size == 3)
-		mini_sort(stack_a); //aqui haces y sigues la guia para solo para tres numeros o más
-	else if(size > 3)
+	else if(size == 3)
+		mini_sort(stack_a);
+		
+	/*else if(size > 3)
 		rest_sort(stack_a);*/
 }
 int main(int argc, char **argv)
@@ -34,12 +35,22 @@ int main(int argc, char **argv)
 	t_program	*new_node;
 	t_program	*program;
 	t_program	*temp;
+	int i;
 	
 	stack_a = NULL;
 	stack_b = NULL;
+	i = 0;
 	if(argc == 2)
 	{
-		ft_memset(&program, 0, sizeof(t_program)); //esto no se si es necesario
+		/*while(argv[i])
+		{
+			if(ft_strchr(argv[i], ' '))
+			{
+				ft_printf("Error\n");
+				return(0);
+			}
+			i++;
+		}*/
 		if(check_digit(argv[1]) < 0)
 		{
 			ft_printf("Error\n");
@@ -49,6 +60,12 @@ int main(int argc, char **argv)
 		if(!program)
 		{
 			ft_printf("Error list\n");
+			return(0);
+		}
+		if(ft_list_size(program) == 1)
+		{
+			ft_printf("Error(you need more numbers!)\n");
+			free_list(program);
 			return(0);
 		}
 		if(check_int(program) < 0)
@@ -85,9 +102,9 @@ int main(int argc, char **argv)
 			free(temp);
 		}
 		push_swap(stack_a);   
-		//print_stack(stack_a);
+		print_stack(stack_a);
 		free_list(stack_a);
-		free_list(program);
+		free_list(program);	
 	}
 	else
 	{

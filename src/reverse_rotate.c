@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 18:02:41 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/04 18:02:44 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/09 21:52:14 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ void	do_reverse_rotate(t_program **head)
 	*head = temp; //se cambia el valor real
 }
 
-void	reverse_rotate_rra(t_program *stack_a)
+void	reverse_rotate_rra(t_program **stack_a)
 {
-	do_reverse_rotate(&stack_a);
+	do_reverse_rotate(stack_a);
 	ft_printf("rra\n");
 }
-void	reverse_rotate_rrb(t_program *stack_b)
+void	reverse_rotate_rrb(t_program **stack_b)
 {
-	do_reverse_rotate(&stack_b);
+	do_reverse_rotate(stack_b);
 	ft_printf("rrb\n");
 }
-void	reverse_rotate_rrr(t_program *stack_a, t_program *stack_b)
+void	reverse_rotate_rrr(t_program **stack_a, t_program **stack_b)
 {
-	do_reverse_rotate(&stack_a);
-	do_reverse_rotate(&stack_b);
+	do_reverse_rotate(stack_a);
+	do_reverse_rotate(stack_b);
 	ft_printf("rrr\n");
 }
