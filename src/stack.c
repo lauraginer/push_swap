@@ -59,7 +59,7 @@ void print_stack(t_program *stack)
 	list = stack;
 	while(list)
 	{
-		printf("%d\n", list->value);
+		ft_printf("%d\n", list->value);
 		list = list->next;
 	}
 }

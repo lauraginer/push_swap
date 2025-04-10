@@ -1,0 +1,3 @@
+notas de mati:
+cuando ejecuto ./push_swap no tiene que mostrar nada.
+gestionar el signo + cuando lo pasan.

@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 18:02:41 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/09 21:52:14 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/10 22:09:36 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 
 void	do_reverse_rotate(t_program **head)
 {
-	t_program *temp;
-	t_program *prev;
-	
-	if(*head == NULL || (*head)->next == NULL)
+	t_program	*last_node;
+	t_program	*second_last_node;
+	t_program	*new_head;
+
+	last_node = *head;
+	second_last_node = NULL;
+	new_head = NULL;
+	if (*head == NULL || (*head)->next == NULL)
 		return ;
-	temp = *head;
-	prev = NULL;
-	while(temp->next) //recorres hasta encontrar el último nodo
+	while (last_node->next != NULL)
 	{
-		prev = temp; //penultimo nodo
-		temp = temp->next;
+		second_last_node = last_node;
+		last_node = last_node->next;
 	}
-	prev->next = NULL; //aislas el último nodo
-	temp->next = *head; //conectas el ultimo nodo al principio de la lista apuntando la posicion de head 
-	*head = temp; //se cambia el valor real
+	second_last_node->next = NULL;
+	last_node->next = *head;
+	new_head = last_node;
+	*head = new_head;
 }
 
 void	reverse_rotate_rra(t_program **stack_a)

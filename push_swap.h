@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/09 21:51:36 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/10 21:59:04 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	swap_sb(t_program *stack_b);
 void	swap_sa(t_program *stack_a);
 void	swap_ss(t_program *stack_a, t_program *stack_b);
 void	do_rotate(t_program **head);
-void	rotate_ra(t_program *stack_a);
+void	rotate_ra(t_program **stack_a);
 void	rotate_rb(t_program *stack_b);
 void	rotate_rr(t_program *stack_a, t_program *stack_b);
 void	do_reverse_rotate(t_program **head);
@@ -54,7 +54,7 @@ t_program	*create_node(int value);
 void	add_node(t_program **stack, t_program *new);
 void print_stack(t_program *stack);
 int	ft_list_size(t_program *head);
-void push_swap(t_program *stack_a);
-void	mini_sort(t_program *stack_a);
+void 	push_swap(t_program **stack_a);
+void	mini_sort(t_program **stack_a);
 
 #endif
