@@ -6,30 +6,32 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/10 22:00:00 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/11 20:34:16 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 //static int check_all();
-void push_swap(t_program **stack_a)
+void push_swap(t_program **stack_a, t_program **stack_b)
 {
 	int size;
 	
 	size = ft_list_size(*stack_a);
-	ft_printf("SIZE : %d\n", size);
+	//ft_printf("SIZE : %d\n", size);
 	if(!stack_a)
 		return;
 	else if(size == 2)
 		swap_sa(*stack_a);
 	else if(size == 3)
 		mini_sort(stack_a);
-	ft_printf("TAMAÑO %d\n",ft_list_size(*stack_a));
+	else if(size > 3)
+		max_sort(stack_a, stack_b);	
+	/*ft_printf("TAMAÑO %d\n",ft_list_size(*stack_a));
 	ft_printf("PUSH SWAP\n");
 	print_stack(*stack_a);
 	exit(1);
-	ft_printf("DESPUES DE PUSH SWAP\n");
+	ft_printf("DESPUES DE PUSH SWAP\n");*/
 }
 int main(int argc, char **argv)
 {
@@ -93,15 +95,14 @@ int main(int argc, char **argv)
 			program = program->next;
 			free(temp);
 		}
-		push_swap(&stack_a);
+		push_swap(&stack_a, &stack_b);
 		print_stack(stack_a);
+		print_stack(stack_b);
 		free_list(stack_a);
+		free_list(stack_b);
 		free_list(program);	
 	}
 	else
-	{
-		ft_printf("Error\n");
 		exit(EXIT_FAILURE); //termina el programa y devuelve un codigo de error al sistema operativo
-	}
 	return(0);
 }

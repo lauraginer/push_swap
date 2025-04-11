@@ -1,3 +1,12 @@
 notas de mati:
-cuando ejecuto ./push_swap no tiene que mostrar nada.
 gestionar el signo + cuando lo pasan.
+
+
+1. Calcular el índice medio:
+   middle_index = (número total de elementos) / 2
+
+2. Mientras el número de elementos en A sea mayor que 3:
+   - Si el índice del primer elemento en A < middle_index:
+       -> Hacer 'pb' (empujarlo a B)
+   - Si no:
+       -> Hacer 'ra' (rotar A para poner otro número en cabeza)

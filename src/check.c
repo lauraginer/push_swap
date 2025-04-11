@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:38 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/09 19:13:15 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/11 19:01:38 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	check_digit(char *str)//comprueba si todos son digitos
 	while(str[i])
 	{
 		if(str[i] == '-')
+			i++;
+		if(str[i] == '+')
 			i++;
 		if(!ft_isdigit(str[i]))//comprobamos que haya al menos un digito
 			return(-1);
