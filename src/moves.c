@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:10:44 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/11 21:07:41 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/15 00:50:15 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,26 @@ void	mini_sort(t_program **stack_a)
        -> Hacer 'pb' (empujarlo a B)
    - Si no:
        -> Hacer 'ra' (rotar A para poner otro número en cabeza)*/
-void	max_sort(t_program **stack_a, t_program **stack_b)//modificas según el indice del primer numero en el stack a
+void	max_sort(t_program **stack_a, t_program **stack_b)//dividimos A: si el índice es menor que la mitad, enviamos a B; si no, rotamos A 
 {
 	int	middle_index;
 	int first; //indice del primer elemento
 	
 	if(!stack_a || ft_list_size(*stack_a) <= 3)
 		return;
-	middle_index = 0;
-	first = 0;
 	middle_index = ft_list_size(*stack_a) / 2;
-	first = (*stack_a)->index;
+	
 	while(ft_list_size(*stack_a) > 3)
 	{
 		/*ft_printf("size: %d\n", ft_list_size(*stack_a));
 		ft_printf("index: %d\n", first);*/
+		first = (*stack_a)->index;
 		if(first < middle_index)
 			push_pb(*stack_a, *stack_b);
 		else
 			reverse_rotate_rra(stack_a);
 	}
+	//ft_printf("index: %d\n", first);
 	mini_sort(stack_a); //ordenas los tres elementos restantes en a
 	
 }
