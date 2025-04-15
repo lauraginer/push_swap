@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:10:44 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/15 00:50:15 by lauragm          ###   ########.fr       */
+/*   Updated: 2025/04/15 21:46:50 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	mini_sort(t_program **stack_a)
 	int b;
 	int c;
 	
+	if(!stack_a || !(*stack_a)->next || !(*stack_a)->next->next)
+		return;
 	a = (*stack_a)->value;
 	b = (*stack_a)->next->value;
 	c = (*stack_a)->next->next->value;
-	if(!stack_a || !(*stack_a)->next || !(*stack_a)->next->next)
-		return;
 	if(a < b && b > c && a < c)
 	{
 		reverse_rotate_rra(stack_a);
@@ -55,17 +55,18 @@ void	max_sort(t_program **stack_a, t_program **stack_b)//dividimos A: si el índ
 	int	middle_index;
 	int first; //indice del primer elemento
 	
-	if(!stack_a || ft_list_size(*stack_a) <= 3)
+	first = 0;
+	if(!stack_a || !(*stack_a) || ft_list_size(*stack_a) <= 3)
 		return;
 	middle_index = ft_list_size(*stack_a) / 2;
 	
 	while(ft_list_size(*stack_a) > 3)
 	{
-		/*ft_printf("size: %d\n", ft_list_size(*stack_a));
-		ft_printf("index: %d\n", first);*/
 		first = (*stack_a)->index;
+		ft_printf("index: %d\n", first);
+		ft_printf("middle: %d\n", middle_index);
 		if(first < middle_index)
-			push_pb(*stack_a, *stack_b);
+			push_pb(stack_a, stack_b);
 		else
 			reverse_rotate_rra(stack_a);
 	}

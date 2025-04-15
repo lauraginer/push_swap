@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/11 20:34:16 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/15 21:25:16 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int main(int argc, char **argv)
 			program = program->next;
 			free(temp);
 		}
+		set_index(&stack_a);
 		push_swap(&stack_a, &stack_b);
 		print_stack(stack_a);
 		print_stack(stack_b);

@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/11 20:31:36 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/15 21:46:13 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	check_int(t_program *head);
 t_program	*string_to_list(char *str);
 void	free_tokens(char **tokens);
 void	free_list(t_program *head);
-void	do_push(t_program **src, t_program **dest);
-void	push_pa(t_program *stack_a, t_program *stack_b);
-void	push_pb(t_program *stack_a, t_program *stack_b);
+void	do_push(t_program **stack_a, t_program **stack_b);
+void	push_pa(t_program **stack_a, t_program **stack_b);
+void	push_pb(t_program **stack_a, t_program **stack_b);
 void	do_swap(t_program *head);
 void	swap_sb(t_program *stack_b);
 void	swap_sa(t_program *stack_a);
@@ -57,5 +57,6 @@ int	ft_list_size(t_program *head);
 void 	push_swap(t_program **stack_a, t_program **stack_b);
 void	mini_sort(t_program **stack_a);
 void	max_sort(t_program **stack_a, t_program **stack_b);
+void set_index(t_program **stack);
 
 #endif

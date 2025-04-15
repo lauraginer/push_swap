@@ -25,7 +25,7 @@ t_program	*create_node(int value) //creamos un nuevo nodo
 	if(!node)
 		return(NULL);
 	node->value = value;
-	node->index = -1;
+	node->index = 1;
 	node->pos = -1;
 	node->target_pos = -1;
 	node->cost_a = 0;
@@ -59,6 +59,7 @@ void print_stack(t_program *stack)
 	list = stack;
 	while(list)
 	{
+		//ft_printf("value: %d index: %d\n", list->value, list->index);
 		ft_printf("%d\n", list->value);
 		list = list->next;
 	}

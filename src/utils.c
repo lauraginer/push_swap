@@ -6,12 +6,11 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:09:48 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/10 22:23:11 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/15 21:23:04 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <math.h>
 
 t_program *string_to_list(char *str) //retorna la **cabeza de una lista enlazada** (`t_program *head`) que se construye a partir del argumento string
 {
@@ -86,3 +85,4 @@ int	ft_list_size(t_program *head)
 	}
 	return (size);
 }
+
