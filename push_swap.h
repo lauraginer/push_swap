@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/15 21:46:13 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:31:46 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void 	push_swap(t_program **stack_a, t_program **stack_b);
 void	mini_sort(t_program **stack_a);
 void	max_sort(t_program **stack_a, t_program **stack_b);
 void set_index(t_program **stack);
+void get_position(t_program **stack);
 
 #endif
