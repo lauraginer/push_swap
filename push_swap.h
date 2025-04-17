@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/16 16:31:46 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:06:52 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,7 @@ void	mini_sort(t_program **stack_a);
 void	max_sort(t_program **stack_a, t_program **stack_b);
 void set_index(t_program **stack);
 void get_position(t_program **stack);
+int	get_lowest_index(t_program **stack_a);
+void get_target_position(t_program **stack_a, t_program **stack_b);
 
 #endif

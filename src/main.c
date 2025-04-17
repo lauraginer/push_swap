@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/16 15:41:26 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:16:33 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,9 @@ int main(int argc, char **argv)
 		}
 		set_index(&stack_a);
 		push_swap(&stack_a, &stack_b);
+		ft_printf("SLACK A\n");
 		print_stack(stack_a);
+		ft_printf("SLACK B\n");
 		print_stack(stack_b);
 		free_list(stack_a);
 		free_list(stack_b);

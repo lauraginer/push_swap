@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:10:44 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/16 16:36:28 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:13:37 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,13 @@ void	max_sort(t_program **stack_a, t_program **stack_b)//dividimos A: si el índ
 	int	middle_index;
 	int len = ft_list_size(*stack_a);
 	int i = 0;
-//	int first; //indice del primer elemento
 	
-//	first = 0;
 	if(!stack_a || !(*stack_a) || ft_list_size(*stack_a) <= 3)
 		return;
 	middle_index = ft_list_size(*stack_a) / 2;
 	ft_printf("%d\n",middle_index);
 	while(i < len)
 	{
-		//first = (*stack_a)->index;
-		ft_printf("index: %d\n", (*stack_a)->index);
-		//ft_printf("middle: %d\n", middle_index);
 		if((*stack_a)->index <= middle_index)
 			push_pb(stack_a, stack_b);
 		else
@@ -77,5 +72,9 @@ void	max_sort(t_program **stack_a, t_program **stack_b)//dividimos A: si el índ
 	while(ft_list_size(*stack_a) > 3)
 		push_pb(stack_a,stack_b);
 	mini_sort(stack_a); //ordenas los tres elementos restantes en a
+	get_position(stack_a);
+	get_position(stack_b);
+	get_target_position(stack_a, stack_b);
+	
 }
 //importante hacer primero los indices
