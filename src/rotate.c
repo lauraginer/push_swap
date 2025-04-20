@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:30:20 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/10 22:17:55 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/19 22:13:02 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	rotate_ra(t_program **stack_a)
 	do_rotate(stack_a);
 	ft_printf("ra\n");
 }
-void	rotate_rb(t_program *stack_b)
+void	rotate_rb(t_program **stack_b)
 {
-	do_rotate(&stack_b);
+	do_rotate(stack_b);
 	ft_printf("rb\n");
 }
-void	rotate_rr(t_program *stack_a, t_program *stack_b)
+void	rotate_rr(t_program **stack_a, t_program **stack_b)
 {
-	do_rotate(&stack_a);
-	do_rotate(&stack_b);
+	do_rotate(stack_a);
+	do_rotate(stack_b);
 	ft_printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 21:19:15 by lauragm           #+#    #+#             */
-/*   Updated: 2025/04/17 23:28:54 by lauragm          ###   ########.fr       */
+/*   Updated: 2025/04/19 22:31:46 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void set_index(t_program **stack)
 	t_program *current = *stack; //nuestro nodo actual(valor)
 	t_program *cursor; //nodo utilizado para comparar valores
 	
-	while (current)
+	while(current)
 	{
 		cursor = *stack;
 		while(cursor)

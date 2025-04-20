@@ -6,7 +6,7 @@
 /*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/17 23:06:52 by lauragm          ###   ########.fr       */
+/*   Updated: 2025/04/19 22:12:30 by lauragm          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	swap_sa(t_program *stack_a);
 void	swap_ss(t_program *stack_a, t_program *stack_b);
 void	do_rotate(t_program **head);
 void	rotate_ra(t_program **stack_a);
-void	rotate_rb(t_program *stack_b);
-void	rotate_rr(t_program *stack_a, t_program *stack_b);
+void	rotate_rb(t_program **stack_b);
+void	rotate_rr(t_program **stack_a, t_program **stack_b);
 void	do_reverse_rotate(t_program **head);
 void	reverse_rotate_rra(t_program **stack_a);
 void	reverse_rotate_rrb(t_program **stack_b);
