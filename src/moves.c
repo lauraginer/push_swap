@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:10:44 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/17 23:13:37 by lauragm          ###   ########.fr       */
+/*   Updated: 2025/04/21 22:53:14 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ void	mini_sort(t_program **stack_a)
 	/*ft_printf("MINISORT\n");
 	print_stack(*stack_a);*/
 }
-/*1. Calcular el índice medio:
-   middle_index = (número total de elementos) / 2
-
-2. Mientras el número de elementos en A sea mayor que 3:
+/*2. Mientras el número de elementos en A sea mayor que 3:
    - Si el índice del primer elemento en A < middle_index:
        -> Hacer 'pb' (empujarlo a B)
    - Si no:
@@ -68,13 +65,13 @@ void	max_sort(t_program **stack_a, t_program **stack_b)//dividimos A: si el índ
 			rotate_ra(stack_a);
 		i++;
 	}
-	//ft_printf("index: %d\n", first);
 	while(ft_list_size(*stack_a) > 3)
 		push_pb(stack_a,stack_b);
 	mini_sort(stack_a); //ordenas los tres elementos restantes en a
 	get_position(stack_a);
 	get_position(stack_b);
 	get_target_position(stack_a, stack_b);
+	calculate_costs(stack_a, stack_b);
 	
 }
-//importante hacer primero los indices
+

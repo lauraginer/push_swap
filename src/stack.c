@@ -58,7 +58,7 @@ void print_stack(t_program *stack)
 	list = stack;
 	while(list)
 	{
-		ft_printf("value: %d index: %d pos: %d\n target_pos: %d\n", list->value, list->index, list->pos, list->target_pos);
+		ft_printf("value: %d index: %d pos: %d\n target_pos: %d\n cost_a: %d\n cost_b: %d\n", list->value, list->index, list->pos, list->target_pos, list->cost_a, list->cost_b);
 		//ft_printf("%d\n", list->value);
 		list = list->next;
 	}
