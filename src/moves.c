@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:10:44 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/21 22:53:14 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/22 20:47:22 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	max_sort(t_program **stack_a, t_program **stack_b)//dividimos A: si el índ
 	if(!stack_a || !(*stack_a) || ft_list_size(*stack_a) <= 3)
 		return;
 	middle_index = ft_list_size(*stack_a) / 2;
-	ft_printf("%d\n",middle_index);
+	//ft_printf("%d\n",middle_index);
 	while(i < len)
 	{
 		if((*stack_a)->index <= middle_index)
@@ -68,10 +68,6 @@ void	max_sort(t_program **stack_a, t_program **stack_b)//dividimos A: si el índ
 	while(ft_list_size(*stack_a) > 3)
 		push_pb(stack_a,stack_b);
 	mini_sort(stack_a); //ordenas los tres elementos restantes en a
-	get_position(stack_a);
-	get_position(stack_b);
-	get_target_position(stack_a, stack_b);
-	calculate_costs(stack_a, stack_b);
-	
+	final_loop(stack_a, stack_b);
 }
 

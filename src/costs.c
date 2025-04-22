@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 21:48:54 by lauragm           #+#    #+#             */
-/*   Updated: 2025/04/21 22:50:35 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/22 20:33:08 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void calculate_costs(t_program **stack_a, t_program **stack_b)
 	
 	while(current)
 	{
-		if(current->pos <= middle_b)
+		if(current->pos < middle_b)
 			current->cost_b = current->pos; // rb
 		else
 			current->cost_b = current->pos - ft_list_size(*stack_b); // rrb (negativo)
-		if(current->target_pos <= middle_a)
+		if(current->target_pos < middle_a)
 			current->cost_a = current->target_pos; //ra
 		else
 			current->cost_a = current->target_pos - ft_list_size(*stack_a); // rra (negativo)
@@ -38,7 +38,7 @@ void calculate_costs(t_program **stack_a, t_program **stack_b)
 	}
 }
 
-t_program *get_lowest_cost(t_program **stack_b) //para encontrar el nodo con menos cost para mover en stack b
+t_program *get_lowest_cost(t_program **stack_b) //para encontrar el nodo con menos cost para mover en stack b, retorna un puntero al nodo en cuestion
 {
 	t_program *current;
 	t_program *cheapest; //valor a retornar
@@ -58,7 +58,7 @@ t_program *get_lowest_cost(t_program **stack_b) //para encontrar el nodo con men
 		}
 		current = current->next;
 	}
-		return(cheapest);
+	return(cheapest);
 }
 
 int manage_numbers(int a, int b)
@@ -71,4 +71,3 @@ int manage_numbers(int a, int b)
 		b *= -1;
 	return(a + b);
 }
-//hacer los movimientos corresòndientes con el cost mas bajo, hacer luego pa, y repetir has que stack b este vacio

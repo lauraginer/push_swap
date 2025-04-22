@@ -6,7 +6,7 @@
 #    By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/01 22:41:14 by lauragm           #+#    #+#              #
-#    Updated: 2025/04/21 22:40:24 by lginer-m         ###   ########.fr        #
+#    Updated: 2025/04/22 20:48:14 by lginer-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = 	src/main.c\
 		src/moves.c\
 		src/indexs.c\
 		src/costs.c\
+		src/more_utils.c\
 
 OBJS = ${SRCS:.c=.o}
 
