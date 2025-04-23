@@ -6,7 +6,7 @@
 #    By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/01 22:41:14 by lauragm           #+#    #+#              #
-#    Updated: 2025/04/23 20:57:28 by lginer-m         ###   ########.fr        #
+#    Updated: 2025/04/23 21:15:55 by lginer-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,10 +43,10 @@ OBJS = ${SRCS:.c=.o}
 all: libft printf $(NAME)
 
 libft:
-	make -C $(LIBFT_DIR)
+	@make -s all -C $(LIBFT_DIR)
 
 printf:
-	@make -C $(PRINTF_DIR)
+	@make -s all -C $(PRINTF_DIR)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(HEADERS) -o $@ -c $< 

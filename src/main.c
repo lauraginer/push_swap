@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/17 23:16:33 by lauragm          ###   ########.fr       */
+/*   Updated: 2025/04/23 21:47:29 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,40 +43,56 @@ int main(int argc, char **argv)
 	
 	stack_a = NULL;
 	stack_b = NULL;
-	if(argc == 2)
+	char *total;
+	char *tmp;
+	int i;
+
+	total = NULL;
+	tmp = NULL;
+	if(argc >= 2)
 	{
+		i = 0;
+		while (++i < argc) {
+			tmp = ft_strjoin(total, " ");
+			free(total);
+			total = tmp;
+			tmp = ft_strjoin(total, argv[i]);
+			free(total);
+			total = tmp;
+		}
+		ft_memcpy(argv[1], total, ft_strlen(total) + 1);
+		free(total);
 		if(check_digit(argv[1]) < 0)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			return(0);
 		}
 		program = string_to_list(argv[1]);
 		if(!program)
 		{
-			ft_printf("Error list\n");
+			write(2, "Error\n", 6);
 			return(0);
 		}
 		if(ft_list_size(program) == 1)
 		{
-			ft_printf("Error(you need more numbers!)\n");
+			write(2, "Error\n", 6);
 			free_list(program);
 			return(0);
 		}
 		if(check_int(program) < 0)
 		{
-			ft_printf("Not int\n");
+			write(2, "Error\n", 6);
 			free_list(program);
 			return(0);
 		}
 		if(check_duplicate(program) < 0)
 		{
-			ft_printf("Is duplicate!!\n");
+			write(2, "Error\n", 6);
 			free_list(program);
 			return(0);
 		}
 		if(check_order(program) == 0)
 		{
-			ft_printf("Is order\n");
 			free_list(program);
 			return(0);
 		}
@@ -85,7 +101,7 @@ int main(int argc, char **argv)
 			new_node = create_node(program->value); //crear un nodo con el valor actual
 			if(!new_node)
 			{
-				ft_printf("Error creating node\n");
+				write(2, "Error\n", 6);
 				free_list(stack_a);
 				free_list(program);
 				return(0);
@@ -97,15 +113,15 @@ int main(int argc, char **argv)
 		}
 		set_index(&stack_a);
 		push_swap(&stack_a, &stack_b);
-		ft_printf("SLACK A\n");
-		print_stack(stack_a);
-		ft_printf("SLACK B\n");
-		print_stack(stack_b);
+		//ft_printf("SLACK A\n");
+		//print_stack(stack_a);
+		//ft_printf("SLACK B\n");
+		//print_stack(stack_b);
 		free_list(stack_a);
 		free_list(stack_b);
 		free_list(program);	
 	}
 	else
-		exit(EXIT_FAILURE); //termina el programa y devuelve un codigo de error al sistema operativo
+		exit(EXIT_FAILURE); // termina el programa y devuelve un codigo de error al sistema operativo
 	return(0);
 }
