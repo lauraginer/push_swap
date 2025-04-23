@@ -6,13 +6,36 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 22:28:23 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/22 23:02:29 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/23 20:55:04 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void rotate_stack_a(t_program **stack_a);
+void rotate_stack_a(t_program **stack_a)
+{
+	t_program *current;
+	t_program *lowest_node;
+	int min_index;
+	
+	if (!stack_a || !*stack_a) 
+        return;
+	current = *stack_a;
+	lowest_node = current;
+	min_index = current->index;
+	while(current)
+	{
+		if(current->index < min_index) //si se encuentra un nodo menor que el primero se actualiza
+		{
+			min_index = current->index;
+			lowest_node = current;
+		}
+		current = current->next;
+	}
+	while((*stack_a)->index != min_index)
+		rotate_ra(stack_a);	
+}
+
 void final_loop(t_program **stack_a, t_program **stack_b)
 {
 	t_program *cheapest_node;

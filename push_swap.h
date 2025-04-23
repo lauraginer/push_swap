@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:46:11 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/22 20:46:58 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/23 20:12:39 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ t_program *get_lowest_cost(t_program **stack_b);
 void final_moves(t_program **stack_a, t_program **stack_b, t_program *cheapest_node);
 void single_moves(t_program **stack_a, t_program **stack_b, int ca, int cb);
 void final_loop(t_program **stack_a, t_program **stack_b);
+void rotate_stack_a(t_program **stack_a);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   indexs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lauragm <lauragm@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 21:19:15 by lauragm           #+#    #+#             */
-/*   Updated: 2025/04/19 22:31:46 by lauragm          ###   ########.fr       */
+/*   Updated: 2025/04/23 21:01:10 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,12 @@ void get_target_position(t_program **stack_a, t_program **stack_b)
 			while(current_a)
 			{
 				if(current_a->pos == get_lowest_index(stack_a))
-				{
 					closest = current_a;
-				}
 				current_a = current_a->next;
 			}
 		}
-		current_b->target_pos = closest->pos;
+		if (closest)
+			current_b->target_pos = closest->pos;
 		current_b = current_b->next;
 	}
 	
