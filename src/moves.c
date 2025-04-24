@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:10:44 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/23 21:47:50 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:10:15 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,45 @@ void	mini_sort(t_program **stack_a)
 	/*ft_printf("MINISORT\n");
 	print_stack(*stack_a);*/
 }
-void	max_sort(t_program **stack_a, t_program **stack_b)//dividimos A: si el índice es menor que la mitad, enviamos a B; si no, rotamos A 
+void max_sort(t_program **stack_a, t_program **stack_b)
 {
-	int	middle_index;
-	int len = ft_list_size(*stack_a);
-	int i = 0;
-	
-	if(!stack_a || !(*stack_a) || ft_list_size(*stack_a) <= 3)
-		return;
-	middle_index = ft_list_size(*stack_a) / 2;
-	//ft_printf("%d\n",middle_index);
-	while(i < len)
+    int middle_index;
+    int len = ft_list_size(*stack_a);
+    int i = 0;
+   // int max_index = 0;
+    
+    // Encontrar el índice máximo
+    /*t_program *current = *stack_a;
+    while (current)
+    {
+        if (current->index > max_index)
+            max_index = current->index;
+        current = current->next;
+    }*/
+    if(!stack_a || !(*stack_a) || ft_list_size(*stack_a) <= 3)
+        return;
+        
+    middle_index = ft_list_size(*stack_a) / 2;
+    
+    while(i < len)
+    {
+        // No enviar a B si es uno de los 3 elementos con mayor índice
+        if((*stack_a)->index <= middle_index)
+            push_pb(stack_a, stack_b);
+        else
+            rotate_ra(stack_a);
+        i++;
+    }
+    while(ft_list_size(*stack_a) > 3)
 	{
-		if((*stack_a)->index <= middle_index)
-			push_pb(stack_a, stack_b);
-		else
-			rotate_ra(stack_a);
-		i++;
+        push_pb(stack_a, stack_b);
 	}
-	while(ft_list_size(*stack_a) > 3)
-		push_pb(stack_a,stack_b);
 	//ft_printf("Antes de mini_sort\n");
 	mini_sort(stack_a); //ordenas los tres elementos restantes en a
+	// ft_printf("SLACK A\n");
+	// print_stack(*stack_a);
+	// ft_printf("SLACK B\n");
+	// print_stack(*stack_b);
 	//ft_printf("Antes de final_loop\n");
 	final_loop(stack_a, stack_b);
 	//ft_printf("Antes de rotate_stack_a\n");

@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 21:19:15 by lauragm           #+#    #+#             */
-/*   Updated: 2025/04/23 21:01:10 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/24 19:43:27 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void get_target_position(t_program **stack_a, t_program **stack_b)
 		}
 		if(!closest) //si no encontramos un indice mayor, entonces guardamos el indice mas pequeño del stack a
 		{
+			current_a = *stack_a;
 			while(current_a)
 			{
 				if(current_a->pos == get_lowest_index(stack_a))
