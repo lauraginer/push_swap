@@ -6,7 +6,7 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 20:25:54 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/08 17:24:33 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/24 20:46:39 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static void	compare_type(const char *format, va_list args, int *store, int i)
 				*store += ft_puthex_m(va_arg(args, unsigned int));
 			if (format[i] == '%')
 				*store += ft_print_char('%');
-			continue;
+			continue ;
 		}
-		*store += write (1, &(format[i]), 1);
+		*store += write(1, &(format[i]), 1);
 	}
 }
 

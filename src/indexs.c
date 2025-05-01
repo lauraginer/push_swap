@@ -6,23 +6,24 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 21:19:15 by lauragm           #+#    #+#             */
-/*   Updated: 2025/04/24 19:43:27 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/05/01 17:09:30 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void set_index(t_program **stack)
+void	set_index(t_program **stack)
 {
-	t_program *current = *stack; //nuestro nodo actual(valor)
-	t_program *cursor; //nodo utilizado para comparar valores
-	
-	while(current)
+	t_program	*current;
+	t_program	*cursor;
+
+	current = *stack;
+	while (current)
 	{
 		cursor = *stack;
-		while(cursor)
+		while (cursor)
 		{
-			if (current->value > cursor->value) //si el valor actual es mayor que el nodo de cursor
+			if (current->value > cursor->value)
 			{
 				current->index++;
 			}
@@ -32,14 +33,14 @@ void set_index(t_program **stack)
 	}
 }
 
-void get_position(t_program **stack)
+void	get_position(t_program **stack)
 {
-	t_program *current;
-	int position;
-	
+	t_program	*current;
+	int			position;
+
 	current = *stack;
 	position = 0;
-	while(current)
+	while (current)
 	{
 		current->pos = position;
 		position++;
@@ -49,58 +50,60 @@ void get_position(t_program **stack)
 
 int	get_lowest_index(t_program **stack_a)
 {
-	t_program *current;
-	t_program *lowest;
-	int pos;
-	
+	t_program	*current;
+	t_program	*lowest;
+	int			pos;
+
 	lowest = *stack_a;
 	current = *stack_a;
 	pos = 0;
-	while(current)
+	while (current)
 	{
-		if(lowest->index > current->index)
+		if (lowest->index > current->index)
 		{
-			pos = current->pos; //actualizamos la posicion del indice mas bajo
-			lowest = current; //actualizamos lowest
+			pos = current->pos;
+			lowest = current;
 		}
 		current = current->next;
 	}
-	return(pos); //retornamos la posicion del nodo con el index mas bajo
+	return (pos);
 }
 
-void get_target_position(t_program **stack_a, t_program **stack_b)
+void	get_target_position(t_program **stack_a, t_program **stack_b)
 {
-	/*Regla: buscamos el elemento de A con el índice más pequeño 
-	que sea mayor que el índice del elemento de B*/
-	
-	t_program *current_b;
-	t_program *current_a;
-	t_program *closest;
-	
+	t_program	*current_b;
+	t_program	*current_a;
+	t_program	*closest;
+
 	current_b = *stack_b;
-	while(current_b)
+	while (current_b)
 	{
 		closest = NULL;
 		current_a = *stack_a;
-		while(current_a)
+		while (current_a)
 		{
-			if(current_a->index > current_b->index && (!closest || current_a->index < closest->index))
+			if (current_a->index > current_b->index && (!closest
+					|| current_a->index < closest->index))
 				closest = current_a;
-			current_a = current_a->next; //avanzamos por el stack_a
+			current_a = current_a->next;
 		}
-		if(!closest) //si no encontramos un indice mayor, entonces guardamos el indice mas pequeño del stack a
-		{
-			current_a = *stack_a;
-			while(current_a)
-			{
-				if(current_a->pos == get_lowest_index(stack_a))
-					closest = current_a;
-				current_a = current_a->next;
-			}
-		}
+		if (!closest)
+			if_closest_null(stack_a, &closest);
 		if (closest)
 			current_b->target_pos = closest->pos;
 		current_b = current_b->next;
 	}
-	
+}
+
+void	if_closest_null(t_program **stack_a, t_program **closest)
+{
+	t_program	*current_a;
+
+	current_a = *stack_a;
+	while (current_a)
+	{
+		if (current_a->pos == get_lowest_index(stack_a))
+			*closest = current_a;
+		current_a = current_a->next;
+	}
 }

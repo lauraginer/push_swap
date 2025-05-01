@@ -6,122 +6,81 @@
 /*   By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:35:50 by lginer-m          #+#    #+#             */
-/*   Updated: 2025/04/24 18:09:00 by lginer-m         ###   ########.fr       */
+/*   Updated: 2025/04/30 20:50:14 by lginer-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-//static int check_all();
-void push_swap(t_program **stack_a, t_program **stack_b)
+void	push_swap(t_program **stack_a, t_program **stack_b)
 {
-	int size;
-	
-	size = ft_list_size(*stack_a);
-	//ft_printf("SIZE : %d\n", size);
-	if(!stack_a)
-		return;
-	else if(size == 2)
-		swap_sa(*stack_a);
-	else if(size == 3)
-		mini_sort(stack_a);
-	else if(size > 3)
-		max_sort(stack_a, stack_b);	
-	/*ft_printf("TAMAÑO %d\n",ft_list_size(*stack_a));
-	ft_printf("PUSH SWAP\n");
-	print_stack(*stack_a);
-	exit(1);
-	ft_printf("DESPUES DE PUSH SWAP\n");*/
-}
-int main(int argc, char **argv)
-{
-	t_program	*stack_a;
-	t_program	*stack_b;
-	t_program	*new_node;
-	t_program	*program;
-	t_program	*temp;
-	
-	stack_a = NULL;
-	stack_b = NULL;
-	char *total;
-	char *tmp;
-	int i;
+	int	size;
 
-	total = NULL;
-	tmp = NULL;
-	if(argc >= 2)
+	size = ft_list_size(*stack_a);
+	if (!stack_a)
+		return ;
+	else if (size == 2)
+		swap_sa(*stack_a);
+	else if (size == 3)
+		mini_sort(stack_a);
+	else if (size > 3)
+		max_sort(stack_a, stack_b);
+}
+
+int	validate_list(t_program *program)
+{
+	if (ft_list_size(program) == 1)
 	{
-		i = 0;
-		while (++i < argc) {
-			tmp = ft_strjoin(total, " ");
-			free(total);
-			total = tmp;
-			tmp = ft_strjoin(total, argv[i]);
-			free(total);
-			total = tmp;
-		}
-		ft_memcpy(argv[1], total, ft_strlen(total) + 1);
-		free(total);
-		if(check_digit(argv[1]) < 0)
-		{
-			write(2, "Error\n", 6);
-			return(0);
-		}
-		program = string_to_list(argv[1]);
-		if(!program)
-		{
-			write(2, "Error\n", 6);
-			return(0);
-		}
-		if(ft_list_size(program) == 1)
-		{
-			write(2, "Error\n", 6);
-			free_list(program);
-			return(0);
-		}
-		if(check_int(program) < 0)
-		{
-			write(2, "Error\n", 6);
-			free_list(program);
-			return(0);
-		}
-		if(check_duplicate(program) < 0)
-		{
-			write(2, "Error\n", 6);
-			free_list(program);
-			return(0);
-		}
-		if(check_order(program) == 0)
-		{
-			free_list(program);
-			return(0);
-		}
-		while(program)
-		{
-			new_node = create_node(program->value); //crear un nodo con el valor actual
-			if(!new_node)
-			{
-				write(2, "Error\n", 6);
-				free_list(stack_a);
-				free_list(program);
-				return(0);
-			}
-			add_node(&stack_a, new_node);//añades el nodo a slack a
-			temp = program; //para liberar el nodo actual de program //enterate bien de esto
-			program = program->next;
-			free(temp);
-		}
-		set_index(&stack_a);
-		push_swap(&stack_a, &stack_b);
-	   	// ft_printf("SLACK A\n");
-		// print_stack(stack_a);
-		// ft_printf("SLACK B\n");
-		// print_stack(stack_b);
-		free_list(stack_a);
-		free_list(stack_b);
-		free_list(program);	
+		free_list(program);
+		return (0);
 	}
-	else
-		exit(EXIT_FAILURE); // termina el programa y devuelve un codigo de error al sistema operativo
-	return(0);
+	if (check_int(program) < 0)
+	{
+		print_error();
+		free_list(program);
+		return (0);
+	}
+	if (check_duplicate(program) < 0)
+	{
+		print_error();
+		free_list(program);
+		return (0);
+	}
+	if (check_order(program) == 0)
+	{
+		free_list(program);
+		return (0);
+	}
+	return (1);
+}
+
+int	validate_args(char *arg, t_program **program_ptr)
+{
+	if (check_digit(arg) < 0)
+	{
+		print_error();
+		return (0);
+	}
+	*program_ptr = string_to_list(arg);
+	if (!*program_ptr)
+	{
+		print_error();
+		return (0);
+	}
+	return (validate_list(*program_ptr));
+}
+
+int	main(int argc, char **argv)
+{
+	t_program	*program;
+
+	if (argc < 2)
+		exit(EXIT_FAILURE);
+	if (argc > 2)
+		join_args(argc, argv);
+	if (!validate_args(argv[1], &program))
+		return (0);
+	if (!execute_push_swap(program))
+		return (0);
+	return (0);
 }

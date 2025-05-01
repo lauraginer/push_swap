@@ -6,19 +6,21 @@
 #    By: lginer-m <lginer-m@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/01 22:41:14 by lauragm           #+#    #+#              #
-#    Updated: 2025/04/24 20:12:15 by lginer-m         ###   ########.fr        #
+#    Updated: 2025/04/30 21:47:28 by lginer-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CC = clang
+CC = cc
 CFLAGS = -g -Wall -Werror -Wextra \
 		# -fsanitize=address,undefined \
 		#-Wunreachable-code -Ofast \
 
 LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
+
+HEADER = push_swap.h
 
 PRINTF_DIR = Printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
@@ -37,6 +39,7 @@ SRCS = 	src/main.c\
 		src/indexs.c\
 		src/costs.c\
 		src/more_utils.c\
+		src/final_step.c\
 
 OBJS = ${SRCS:.c=.o}
 
